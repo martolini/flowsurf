@@ -1,14 +1,14 @@
 // JavaScript Document
 "use strict";
 //Preloader
-$(window).load(function () {
+$(window).load(function() {
     $("#intro-loader").delay(1000).fadeOut();
     $(".mask").delay(1000).fadeOut("slow");
 });
-$(document).ready(function () {
+$(document).ready(function() {
     //Elements Appear from top
-    $('.item_top').each(function () {
-        $(this).appear(function () {
+    $('.item_top').each(function() {
+        $(this).appear(function() {
             $(this).delay(400).animate({
                 opacity: 1,
                 top: "0px"
@@ -16,8 +16,8 @@ $(document).ready(function () {
         });
     });
     //Elements Appear from bottom
-    $('.item_bottom').each(function () {
-        $(this).appear(function () {
+    $('.item_bottom').each(function() {
+        $(this).appear(function() {
             $(this).delay(400).animate({
                 opacity: 1,
                 bottom: "0px"
@@ -25,8 +25,8 @@ $(document).ready(function () {
         });
     });
     //Elements Appear from left
-    $('.item_left').each(function () {
-        $(this).appear(function () {
+    $('.item_left').each(function() {
+        $(this).appear(function() {
             $(this).delay(400).animate({
                 opacity: 1,
                 left: "0px"
@@ -34,8 +34,8 @@ $(document).ready(function () {
         });
     });
     //Elements Appear from right
-    $('.item_right').each(function () {
-        $(this).appear(function () {
+    $('.item_right').each(function() {
+        $(this).appear(function() {
             $(this).delay(400).animate({
                 opacity: 1,
                 right: "0px"
@@ -43,8 +43,8 @@ $(document).ready(function () {
         });
     });
     //Elements Appear in fadeIn effect
-    $('.item_fade_in').each(function () {
-        $(this).appear(function () {
+    $('.item_fade_in').each(function() {
+        $(this).appear(function() {
             $(this).delay(400).animate({
                 opacity: 1,
                 right: "0px"
@@ -53,19 +53,19 @@ $(document).ready(function () {
     });
 
     //Navigation BUTTON
-    $('.nav-toggle').hover(function () {
+    $('.nav-toggle').hover(function() {
         $(this).find('.dropdown-menu').first().stop(true, true).fadeIn(250);
-    }, function () {
+    }, function() {
         $(this).find('.dropdown-menu').first().stop(true, true).fadeOut(250)
     });
 
 
-    $(".mobile-nav-button").click(function () {
-        $(".inner div.nav-menu").slideToggle("medium", function () {
+    $(".mobile-nav-button").click(function() {
+        $(".inner div.nav-menu").slideToggle("medium", function() {
             // Animation complete.
         });
     });
-    $('.inner div.nav-menu ul.nav li a').click(function () {
+    $('.inner div.nav-menu ul.nav li a').click(function() {
         if ($(window).width() < 1000) {
             $(".nav-menu").slideToggle("2000")
         }
@@ -85,8 +85,8 @@ $(document).ready(function () {
         href: 'javascript:slide("right");',
     });
     if (!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
-        $('.clients').waypoint(function () {
-            $('#carousel_ul').children().each(function (index) {
+        $('.clients').waypoint(function() {
+            $('#carousel_ul').children().each(function(index) {
                 $(this).delay(300 * index).animate({
                     opacity: "1",
                     marginTop: "0"
@@ -119,8 +119,8 @@ $(document).ready(function () {
     /*===================================================================================*/
     /*  PROFOLIO INIT FULL WIDTH                                                         */
     /*===================================================================================*/
-    portfolio.fullWidth = function () {
-        $(window).load(function () {
+    portfolio.fullWidth = function() {
+        $(window).load(function() {
             $portfolioItems.isotope({
                 animationEngine: 'best-available',
                 animationOptions: {
@@ -130,7 +130,7 @@ $(document).ready(function () {
                 }
             });
         });
-        $filtrable.find('a').click(function (e) {
+        $filtrable.find('a').click(function(e) {
             var currentOption = $(this).data('cat');
             $filtrable.find('a').removeClass('active');
             $(this).addClass('active');
@@ -146,7 +146,7 @@ $(document).ready(function () {
     /*===================================================================================*/
     /*  PROFOLIO INIT AJAX                                                               */
     /*===================================================================================*/
-    portfolio.ajax = function () {
+    portfolio.ajax = function() {
         function portfolioInit() {
             var newHash = "",
                 $mainContent = $("#portfolio-ajax"),
@@ -154,13 +154,13 @@ $(document).ready(function () {
                 root = '#!projects/',
                 rootLength = root.length,
                 url;
-            $portfolioItems.find(".full-page").click(function () {
+            $portfolioItems.find(".full-page").click(function() {
                 window.location.hash = $(this).attr("href");
-                $(document.body).addClass('noscroll' );
+                $(document.body).addClass('noscroll');
                 return false;
             });
             //binding keypress function
-            $("#portfolio-wrap").bind("keydown", function (e) {
+            $("#portfolio-wrap").bind("keydown", function(e) {
                 if (e.keyCode == 37) {
                     $('.single-portfolio').remove();
                     window.location.hash = $("#portfolio-items .current").next().find('.full-page').attr("href");
@@ -170,7 +170,7 @@ $(document).ready(function () {
                     window.location.hash = $("#portfolio-items .current").prev().find('.full-page').attr("href");
                     return false;
                 } else if (e.keyCode == 27) {
-                    $('#portfolio-wrap').fadeOut('100', function () {
+                    $('#portfolio-wrap').fadeOut('100', function() {
                         $('.single-portfolio').remove();
                     });
                     history.pushState('', document.title, window.location.pathname);
@@ -178,12 +178,12 @@ $(document).ready(function () {
                     return false;
                 }
             });
-            $(window).bind('hashchange', function () {
+            $(window).bind('hashchange', function() {
                 newHash = window.location.hash;
                 url = newHash.replace(/[#\!]/g, '');
                 if (newHash.substr(0, rootLength) == root) {
                     if ($pageWrap.is(':hidden')) {
-                        $pageWrap.slideDown('3000', function () {});
+                        $pageWrap.slideDown('3000', function() {});
                     }
                     $pageWrap.niceScroll({
                         cursorcolor: "#666",
@@ -192,9 +192,9 @@ $(document).ready(function () {
                         cursorborderradius: 0
                     });
                     $pageWrap.append('<div id="preloader"></div>');
-                    $mainContent.load(url + " .single-portfolio", function (xhr, statusText, request) {
+                    $mainContent.load(url + " .single-portfolio", function(xhr, statusText, request) {
                         if (statusText == "success") {
-                            setTimeout(function () {
+                            setTimeout(function() {
                                 $(".slider_container").flexslider({
                                     directionNav: true,
                                     controlNav: false
@@ -225,7 +225,7 @@ $(document).ready(function () {
                         jQuery('#prev-project, #next-project').removeClass('disabled');
                     }
                 } else if (newHash == '') {
-                    $('#portfolio-wrap').fadeOut('100', function () {
+                    $('#portfolio-wrap').fadeOut('100', function() {
                         $('.single-portfolio').remove();
                     });
                 }
@@ -234,19 +234,19 @@ $(document).ready(function () {
         }
 
         function closeProject() {
-            $('#close-project').on('click', function () {
-                $('#portfolio-wrap').fadeOut('100', function () {
+            $('#close-project').on('click', function() {
+                $('#portfolio-wrap').fadeOut('100', function() {
                     $('.single-portfolio').remove();
                 });
                 history.pushState('', document.title, window.location.pathname);
                 window.location.hash = '#_';
-                $(document.body).removeClass('noscroll' );
+                $(document.body).removeClass('noscroll');
                 return false;
             });
         }
 
         function nextProject() {
-            $("#next-project").on("click", function () {
+            $("#next-project").on("click", function() {
                 $('.single-portfolio').remove();
                 window.location.hash = $("#portfolio-items .current").next().find('.full-page').attr("href");
                 return false;
@@ -254,7 +254,7 @@ $(document).ready(function () {
         }
 
         function prevProject() {
-            $("#prev-project").on("click", function () {
+            $("#prev-project").on("click", function() {
                 $('.single-portfolio').remove();
                 window.location.hash = $("#portfolio-items .current").prev().find('.full-page').attr("href");
                 return false;
@@ -267,33 +267,60 @@ $(document).ready(function () {
 
     function initColorBox() {
         //How to assign the Colorbox event to elements
-				$(".cb-img").colorbox({rel:'cb-img', transition:"fade", width:"80%", height:"80%"});
-				$(".ajax").colorbox();
-				$(".cb-youtube").colorbox({iframe:true, innerWidth:"80%", innerHeight:"80%"});
-				$(".cb-vimeo").colorbox({iframe:true, innerWidth:"80%", innerHeight:"80%"});
-				$(".cb-iframe").colorbox({iframe:true, width:"80%", height:"80%"});
-				$(".callbacks").colorbox({
-					onOpen:function(){ alert('onOpen: colorbox is about to open'); },
-					onLoad:function(){ alert('onLoad: colorbox has started to load the targeted content'); },
-					onComplete:function(){ alert('onComplete: colorbox has displayed the loaded content'); },
-					onCleanup:function(){ alert('onCleanup: colorbox has begun the close process'); },
-					onClosed:function(){ alert('onClosed: colorbox has completely closed'); }
-				});
-     }    
+        $(".cb-img").colorbox({
+            rel: 'cb-img',
+            transition: "fade",
+            width: "80%",
+            height: "80%"
+        });
+        $(".ajax").colorbox();
+        $(".cb-youtube").colorbox({
+            iframe: true,
+            innerWidth: "80%",
+            innerHeight: "80%"
+        });
+        $(".cb-vimeo").colorbox({
+            iframe: true,
+            innerWidth: "80%",
+            innerHeight: "80%"
+        });
+        $(".cb-iframe").colorbox({
+            iframe: true,
+            width: "80%",
+            height: "80%"
+        });
+        $(".callbacks").colorbox({
+            onOpen: function() {
+                alert('onOpen: colorbox is about to open');
+            },
+            onLoad: function() {
+                alert('onLoad: colorbox has started to load the targeted content');
+            },
+            onComplete: function() {
+                alert('onComplete: colorbox has displayed the loaded content');
+            },
+            onCleanup: function() {
+                alert('onCleanup: colorbox has begun the close process');
+            },
+            onClosed: function() {
+                alert('onClosed: colorbox has completely closed');
+            }
+        });
+    }
     portfolio.fullWidth();
     portfolio.ajax();
     initColorBox();
-    
+
     /*Pie Chart*/
-    $(function () {
-        $('.chart').appear(function () {
+    $(function() {
+        $('.chart').appear(function() {
             $('.chart').easyPieChart({
                 easing: 'easeOutBounce',
                 barColor: "#838590",
                 size: "150",
                 lineWidth: 15,
                 animate: 2000,
-                onStep: function (from, to, percent) {
+                onStep: function(from, to, percent) {
                     $(this.el).find('.percent').text(Math.round(percent));
                 }
             });
@@ -301,7 +328,7 @@ $(document).ready(function () {
     });
 
     /*Skill*/
-    $('.skillBar li').each(function () {
+    $('.skillBar li').each(function() {
         var b = $(this).find("span").attr("data-width");
         $(this).find("span").css({
             width: b + "%"
@@ -310,12 +337,12 @@ $(document).ready(function () {
 
     /* Start Package select */
 
-    $(function () {
-        $(".package").click(function () {
-            $('.package-container .package').each(function () {
+    $(function() {
+        $(".package").click(function() {
+            $('.package-container .package').each(function() {
                 $(".package").removeClass("package-active");
             })
-            $('.packages > div').each(function () {
+            $('.packages > div').each(function() {
                 $(".packages > div").removeClass("package-show");
                 $(".packages > div").addClass("package-hide");
             })
@@ -334,7 +361,7 @@ $(document).ready(function () {
     var submit = $('#contactForm_submit');
     var alertx = $('.form-respond');
     // form submit event
-    $(document).on('submit', '#contactform', function (e) {
+    $(document).on('submit', '#contactform', function(e) {
         e.preventDefault(); // prevent default form submit
         // sending ajax request through jQuery
         alertx.fadeOut();
@@ -373,7 +400,7 @@ $(document).ready(function () {
         // });
     });
     // Minify the Nav Bar
-    jQuery(document).scroll(function () {
+    jQuery(document).scroll(function() {
         var position = jQuery(document).scrollTop();
         if ($("#home").length > 0) {
             var headerHeight = jQuery('#home').outerHeight();
@@ -407,14 +434,14 @@ $(document).ready(function () {
         }
     });
     //Back To Top
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         if ($(window).scrollTop() > 400) {
             $("#back-top").fadeIn(200);
         } else {
             $("#back-top").fadeOut(200);
         }
     });
-    $('#back-top').click(function () {
+    $('#back-top').click(function() {
         $('html, body').stop().animate({
             scrollTop: 0
         }, 1500, 'easeInOutExpo');
@@ -431,8 +458,8 @@ $(function() {
     });
 });
 //Scroll nav Scrolling
-$(function () {
-    $('a.scroll').bind('click', function (event) {
+$(function() {
+    $('a.scroll').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top - 70
@@ -441,32 +468,32 @@ $(function () {
     });
 });
 //FullScreen Slider
-if($('#fullscreen-slider').length){
-$('#fullscreen-slider').superslides({
-    play: 12000,
-    animation: 'fade',
-    inherit_height_from: window,
-});
+if ($('#fullscreen-slider').length) {
+    $('#fullscreen-slider').superslides({
+        play: 12000,
+        animation: 'fade',
+        inherit_height_from: window,
+    });
 }
 //Rotate Header Title
-   if($("#header-title").length){
-      var owl = $("#header-title");
-      owl.owlCarousel({
-        navigation : true,
-        singleItem : true,
+if ($("#header-title").length) {
+    var owl = $("#header-title");
+    owl.owlCarousel({
+        navigation: true,
+        singleItem: true,
         //Basic Speeds
-        slideSpeed : 200,
-        paginationSpeed : 800,
+        slideSpeed: 200,
+        paginationSpeed: 800,
         touchDrag: false,
         mouseDrag: false,
         //Autoplay
-        autoPlay : 5000,
-        stopOnHover : false,
-        transitionStyle : "backSlide"
-      });
-    }
+        autoPlay: 5000,
+        stopOnHover: false,
+        transitionStyle: "backSlide"
+    });
+}
 //Parallax
-$(window).bind('load', function () {
+$(window).bind('load', function() {
     parallaxInit();
 });
 
@@ -484,10 +511,10 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 Counter
 -----------------------------------*/
 
-$(function () {
+$(function() {
     "use strict";
-    $(".number-counters").appear(function () {
-        $(".number-counters [data-to]").each(function () {
+    $(".number-counters").appear(function() {
+        $(".number-counters [data-to]").each(function() {
             var count = $(this).attr('data-to');
             $(this).delay(6000).countTo({
                 from: 50,
@@ -513,10 +540,10 @@ var mySwiper = new Swiper('.swiper-testimonial', {
         mode: 'horizontal',
         loop: true,
         speed: 400,
-        autoplay: 5000,
+        autoplay: 20000,
         autoResize: true,
-        pagination: '.pagination-testimonial',
-        paginationClickable: true
+        // pagination: '.pagination-testimonial',
+        // paginationClickable: true
     })
     /*============================================
 	Clients - Carrousel
@@ -544,10 +571,10 @@ if (auto_slide == 1) {
 //check if hover pause is enabled  
 if (hover_pause == 1) {
     //when hovered over the list  
-    $('#carousel_ul').hover(function () {
+    $('#carousel_ul').hover(function() {
         //stop the interval  
         clearInterval(timer)
-    }, function () {
+    }, function() {
         //and when mouseout start it again  
         timer = setInterval('slide("right")', auto_slide_seconds);
     });
@@ -555,7 +582,7 @@ if (hover_pause == 1) {
 //check if key sliding is enabled  
 if (key_slide == 1) {
     //binding keypress function  
-    $(document).bind('keypress', function (e) {
+    $(document).bind('keypress', function(e) {
         //keyCode for left arrow is 37 and for right it's 39 '  
         if (e.keyCode == 37) {
             //initialize the slide to left function  
@@ -569,38 +596,38 @@ if (key_slide == 1) {
 //carousel clients
 
 function slide(where) {
-        var item_width = $('#carousel_ul li').outerWidth();
-        if (where == 'left') {
-            var left_indent = parseInt($('#carousel_ul').css('left')) + item_width;
-        } else {
-            var left_indent = parseInt($('#carousel_ul').css('left')) - item_width;
-        }
-        $('#carousel_ul:not(:animated)').animate({
-            'left': left_indent
-        }, 1500, 'easeInOutCubic', function () {
-            if (where == 'left') {
-                $('#carousel_ul li:first').before($('#carousel_ul li:last'));
-            } else {
-                $('#carousel_ul li:last').after($('#carousel_ul li:first'));
-            }
-            $('#carousel_ul').css({
-                'left': '-249px'
-            });
-        });
+    var item_width = $('#carousel_ul li').outerWidth();
+    if (where == 'left') {
+        var left_indent = parseInt($('#carousel_ul').css('left')) + item_width;
+    } else {
+        var left_indent = parseInt($('#carousel_ul').css('left')) - item_width;
     }
-    //Process Bar 
+    $('#carousel_ul:not(:animated)').animate({
+        'left': left_indent
+    }, 1500, 'easeInOutCubic', function() {
+        if (where == 'left') {
+            $('#carousel_ul li:first').before($('#carousel_ul li:last'));
+        } else {
+            $('#carousel_ul li:last').after($('#carousel_ul li:first'));
+        }
+        $('#carousel_ul').css({
+            'left': '-249px'
+        });
+    });
+}
+//Process Bar 
 var processLine = {
     el: ".process-node",
-    init: function () {
+    init: function() {
         processLine.bind();
     },
-    bind: function () {
-        $(window).scroll(function () {
+    bind: function() {
+        $(window).scroll(function() {
             processLine.check();
         });
     },
-    check: function () {
-        $(processLine.el).each(function () {
+    check: function() {
+        $(processLine.el).each(function() {
             if ($(this).offset().top < $(window).scrollTop() + $(window).height() - 200) {
                 $(this).closest("li").addClass("active").find(".line").addClass("active");
                 $(this).addClass("active");
