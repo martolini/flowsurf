@@ -60,6 +60,7 @@ WSGI_APPLICATION = 'flowsurf.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 import dj_database_url
+DATABASES = {}
 DATABASES['default'] =  dj_database_url.config()
 
 # Internationalization
