@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '5z(l1hz&=ve-af&z7u7xvhs$o-^$s)zaoz-#awwkv_*u#ukd1)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -61,7 +61,7 @@ WSGI_APPLICATION = 'flowsurf.wsgi.application'
 
 import dj_database_url
 DATABASES = {}
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config(default='sqlite:///%s' % (os.path.join(BASE_DIR, 'mydb.sqlite3')))
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -87,4 +87,4 @@ EMAIL_HOST_PASSWORD = 'Flowsurf123#'
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = 'static'
