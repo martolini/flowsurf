@@ -13,8 +13,6 @@ import os
 import socket
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-PRODUCTION = 'cauchy' in socket.gethostname()
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -23,7 +21,7 @@ PRODUCTION = 'cauchy' in socket.gethostname()
 SECRET_KEY = '5z(l1hz&=ve-af&z7u7xvhs$o-^$s)zaoz-#awwkv_*u#ukd1)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -61,16 +59,8 @@ WSGI_APPLICATION = 'flowsurf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-if PRODUCTION:
-    STATIC_ROOT = '/opt/flowenv/static'
-
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -96,3 +86,4 @@ EMAIL_HOST_PASSWORD = 'Flowsurf123#'
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'

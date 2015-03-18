@@ -1,3 +1,8 @@
+dj-database-url==0.3.0
+dj-static==0.0.6
 Django==1.7
 -e git://github.com/yceruto/django-ajax@36d45bc0f4380feb69b213241fc6ff74a6d05161#egg=django_ajax-2.2.8
-wsgiref==0.1.2
+django-toolbelt==0.0.1
+gunicorn==19.3.0
+psycopg2==2.6
+static3==0.5.1
